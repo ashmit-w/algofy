@@ -46,12 +46,12 @@ const worker = new Worker(
         const stdout = execSync(
           `docker run --rm --network=none --memory=128m --cpus=0.5 \
            -v ${tmpDir}:/code:ro node:20-alpine \
-           sh -c "timeout 5 node /code/solution.js < /code/input.txt"`,
-          { timeout: 6000, encoding: "utf8" }
+           sh -c "timeout 6 node /code/solution.js < /code/input.txt"`,
+          { timeout: 7000, encoding: "utf8" }
         );
         return { stdout: stdout.trim(), timeMs: Date.now() - start, error: null };
       } catch (err) {
-        const timedOut = err.killed || Date.now() - start >= 5000;
+        const timedOut = err.killed || Date.now() - start >= 6000;
         return { stdout: null, timeMs: Date.now() - start, error: timedOut ? "TLE" : "RTE" };
       }
     }
@@ -63,8 +63,8 @@ const worker = new Worker(
 
       if (error) {
         details.push({ test: testNum, status: error, timeMs });
-        verdict = error;
-        break;
+        if (verdict === "AC") verdict = error;
+        continue;
       }
 
       let passed;
@@ -79,9 +79,8 @@ const worker = new Worker(
       details.push({ test: testNum, status, timeMs });
       console.log(`[job ${job.id}] test ${testNum}: ${status} (${timeMs}ms)`);
 
-      if (!passed) {
+      if (!passed && verdict === "AC") {
         verdict = "WA";
-        break;
       }
     }
 

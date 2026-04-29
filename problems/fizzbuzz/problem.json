@@ -1,0 +1,12 @@
+{
+  "id": "fizzbuzz",
+  "title": "FizzBuzz",
+  "description": "Given an integer n, print numbers from 1 to n. For multiples of 3 print 'Fizz', for multiples of 5 print 'Buzz', for multiples of both print 'FizzBuzz'. Each value on its own line.",
+  "inputFormat": "A single integer n",
+  "outputFormat": "n lines — each line is a number, 'Fizz', 'Buzz', or 'FizzBuzz'",
+  "examples": [
+    { "input": "5", "output": "1\n2\nFizz\n4\nBuzz" }
+  ],
+  "timeoutMs": 5000,
+  "hasTester": false
+}

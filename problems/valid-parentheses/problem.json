@@ -1,0 +1,13 @@
+{
+  "id": "valid-parentheses",
+  "title": "Valid Parentheses",
+  "description": "Given a string containing only '(', ')', '{', '}', '[' and ']', return true if the brackets are correctly matched and closed in the right order, false otherwise.",
+  "inputFormat": "A single string of bracket characters",
+  "outputFormat": "'true' or 'false'",
+  "examples": [
+    { "input": "()", "output": "true" },
+    { "input": "([)]", "output": "false" }
+  ],
+  "timeoutMs": 5000,
+  "hasTester": false
+}

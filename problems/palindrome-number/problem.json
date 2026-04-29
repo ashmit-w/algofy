@@ -1,0 +1,13 @@
+{
+  "id": "palindrome-number",
+  "title": "Palindrome Number",
+  "description": "Given an integer, return true if it reads the same forwards and backwards, false otherwise. Negative numbers are never palindromes.",
+  "inputFormat": "A single integer",
+  "outputFormat": "'true' or 'false'",
+  "examples": [
+    { "input": "121",  "output": "true"  },
+    { "input": "-121", "output": "false" }
+  ],
+  "timeoutMs": 5000,
+  "hasTester": false
+}
